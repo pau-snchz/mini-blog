@@ -35,7 +35,10 @@
 
     <style>
         html { scroll-behavior: smooth; }
-        body { font-family: 'Geist'; }
+        body {
+            background-color: #ccdee8;
+            font-family: 'Geist';
+        }
     </style>
 </head>
 
