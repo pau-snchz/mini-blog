@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ config('app.name', 'Mini-Blog') }}</title>
-    <link rel="icon" type="image/svg+xml" href="{{ asset('images/commeownity-icon.svg') }}">
+    <link rel="icon" type="image/svg+xml" href="{{ asset('images/favicon.png') }}">
 
     <!-- Include Tailwind CSS from CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -51,6 +51,5 @@
     </main>
 
     @include('components.footer')
-
 </body>
 </html>

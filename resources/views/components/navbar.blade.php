@@ -1,11 +1,15 @@
-<div class="bg-[url(images/banner-bg.jpg)] text-white">
+<div class="bg-cover bg-center text-white" style="background-image: url('{{ asset('images/banner-bg.jpg') }}');">
     <div class="bg-black/50">
-        <img src="images/mug&munch-logo.png" alt="mug&munch Logo Icon" class="w-[300px] py-10 m-auto">
+        <img src="{{ asset('images/mug&munch-logo.png') }}" alt="mug&munch Logo Icon" class="w-[300px] py-10 m-auto">
     </div>
     <div class="bg-[#ac764e] flex justify-around items-center py-3">
         <ul class="flex space-x-10">
             <li><a href="{{ route('home') }}" class="hover:underline">Home</a></li>
-            <li><a href="" class="hover:underline">Liked Blogs</a></li>
+            @auth
+                @if(Auth::user()->user_type === 'subscriber')
+                    <li><a href="{{ route('liked.blogs') }}" class="hover:underline">Liked Blogs</a></li>
+                @endif
+            @endauth
         </ul>
         <div>
             @auth
@@ -16,9 +20,10 @@
                             : asset('images/default-pic.jpg');
                     @endphp
                     <img src="{{ $profilePic }}" alt="Profile" class="w-8 h-8 rounded-full object-cover border-2 border-white">
+                    <span class="text-white font-medium">{{ Auth::user()->username }}</span>
                     <form method="POST" action="{{ route('logout') }}" class="inline">
                         @csrf
-                        <button type="submit" class="btn btn-danger bg-red-600 hover:bg-red-700 px-2 py-1 rounded">Logout</button>
+                        <button type="submit" class="btn btn-danger bg-[#63372c] hover:bg-[#734b41] px-2 py-1 rounded">Logout</button>
                     </form>
                 </div>
             @else
