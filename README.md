@@ -125,7 +125,4 @@ php artisan migrate:fresh --seed
 
 # Reset database and seed
 php artisan db:seed
-
-# Refresh specific seeder
-php artisan db:seed --class=PostSeeder
 ```
