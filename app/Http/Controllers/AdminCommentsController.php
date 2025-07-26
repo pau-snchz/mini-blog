@@ -20,13 +20,10 @@ class AdminCommentsController extends Controller
      */
     public function comments()
     {
-        // Fetch comments with user info (including blocked, for review, accepted)
-        // Remove the notBlocked global scope to get all comments
         $comments = Comment::withoutGlobalScope('notBlocked')
             ->with(['user:id,full_name'])
             ->get(['id', 'comment_text', 'user_id', 'status']);
 
-        // Format data for frontend
         $data = $comments->map(function ($comment) {
             return [
                 'id' => $comment->id,
@@ -43,9 +40,6 @@ class AdminCommentsController extends Controller
         return response()->json($data);
     }
 
-    /**
-     * Update the status of a comment (approve/block).
-     */
     public function update(Request $request, $id)
     {
         $request->validate([
