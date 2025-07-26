@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ config('app.name', 'Mini-Blog') }}</title>
     <link rel="icon" type="image/svg+xml" href="{{ asset('images/favicon.png') }}">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Include Tailwind CSS from CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -36,7 +37,7 @@
     <style>
         html { scroll-behavior: smooth; }
         body {
-            background-color: #ccdee8;
+            background-color: #ccdee8 !important;
             font-family: 'Geist';
         }
     </style>
