@@ -1,3 +1,3 @@
 <x-layout>
-    <p>Hello world!</p>
+    <div id="admin-dashboard-root"></div>
 </x-layout>

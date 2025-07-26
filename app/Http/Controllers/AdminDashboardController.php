@@ -21,7 +21,7 @@ class AdminDashboardController extends Controller
             'users' => User::count(),
             'posts' => FoodBlogPost::count(),
             'comments' => Comment::count(),
-            // 'blockedComments' => Comment::where('is_blocked', true)->count(),
+            'blockedComments' => Comment::withoutGlobalScope('notBlocked')->where('status', 2)->count(),
         ]);
     }
 
@@ -39,5 +39,12 @@ class AdminDashboardController extends Controller
         });
 
         return response()->json($posts);
+    }
+
+    public function destroy($id)
+    {
+        $post = \App\Models\FoodBlogPost::findOrFail($id);
+        $post->delete();
+        return response()->json(['success' => true]);
     }
 }
