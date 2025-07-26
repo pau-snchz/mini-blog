@@ -34,6 +34,9 @@ Route::post('/register', [RegisterController::class, 'register']);
 
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
+// Admin Dashboard (must be admin)
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/admin/dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
+    Route::get('/admin/stats', [AdminDashboardController::class, 'stats'])->name('admin.stats');
+    Route::get('/admin/posts', [AdminDashboardController::class, 'posts'])->name('admin.posts');
 });

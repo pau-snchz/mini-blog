@@ -40,6 +40,9 @@
             font-family: 'Geist';
         }
     </style>
+
+    @viteReactRefresh
+    @vite('resources/js/app.jsx')
 </head>
 
 <body>

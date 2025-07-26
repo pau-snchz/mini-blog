@@ -39,4 +39,9 @@ class FoodBlogPost extends Model
     {
         return $this->likedBy()->where('user_id', $userId)->exists();
     }
+
+    public function likes()
+    {
+        return $this->hasMany(LikedPost::class, 'post_id');
+    }
 }
