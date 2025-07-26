@@ -16,6 +16,7 @@ return new class extends Migration
             $table->foreignId('post_id')->constrained('food_blog_posts')->onDelete('cascade');
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->text('comment_text');
+            $table->tinyInteger('status')->default(0); // 0 = for review, 1 = accepted, 2 = blocked
             $table->timestamps();
         });
     }

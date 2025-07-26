@@ -19,6 +19,7 @@ return new class extends Migration
             $table->enum('user_type', ['admin', 'subscriber'])->default('subscriber');
             $table->string('profile_picture')->nullable();
             $table->string('password');
+            $table->boolean('is_banned')->default(false); 
             $table->rememberToken();
             $table->timestamps();
         });

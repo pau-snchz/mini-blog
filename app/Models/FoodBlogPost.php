@@ -44,4 +44,18 @@ class FoodBlogPost extends Model
     {
         return $this->hasMany(LikedPost::class, 'post_id');
     }
+
+    protected static function booted()
+    {
+        static::addGlobalScope('notBannedUser', function ($query) {
+            $query->whereHas('user', function ($q) {
+                $q->where('is_banned', false);
+            });
+        });
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'admin_id');
+    }
 }

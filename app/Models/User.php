@@ -14,6 +14,7 @@ class User extends Authenticatable
         'full_name',
         'email',
         'password',
+        'is_banned',
         'profile_picture',
         'user_type',
     ];
@@ -22,4 +23,11 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
+
+    protected static function booted()
+    {
+        static::addGlobalScope('notBanned', function ($query) {
+            $query->where('is_banned', false);
+        });
+    }
 }
