@@ -62,7 +62,7 @@ export default function AdminComments() {
   return (
     <Box style={{ backgroundColor: '#ccdee8', height: "100vh", overflowY: "auto", fontFamily: "Geist, sans-serif" }}>
       <Heading mb="5" mt="8">Comments</Heading>
-      <Table.Root variant="surface" mt="5">
+      <Table.Root variant="surface">
       <Table.Header>
           <Table.Row>
             <Table.ColumnHeaderCell>ID</Table.ColumnHeaderCell>

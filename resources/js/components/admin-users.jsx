@@ -67,7 +67,7 @@ export default function AdminUsers() {
       ) : usersError ? (
         <Text color="red">{usersError}</Text>
       ) : (
-        <Table.Root variant="surface" mt="5">
+        <Table.Root variant="surface">
           <Table.Header>
             <Table.Row>
               <Table.ColumnHeaderCell>ID</Table.ColumnHeaderCell>
