@@ -9,3 +9,13 @@
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
 }
+
+/* Override Radix UI Theme background color */
+:root,
+[data-theme="light"] {
+  --color-background: #ccdee8 !important;
+}
+
+[data-theme="dark"] {
+  --color-background: #18181b !important;
+}

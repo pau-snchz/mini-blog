@@ -7,9 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class Comment extends Model
 {
     protected $fillable = [
-        'post_id', 
+        'post_id',
         'user_id',
         'comment_text',
+        'status', // 0 = for review, 1 = accepted, 2 = blocked
     ];
 
     public function user()
@@ -20,5 +21,12 @@ class Comment extends Model
     public function post()
     {
         return $this->belongsTo(FoodBlogPost::class, 'post_id');
+    }
+
+    protected static function booted()
+    {
+        static::addGlobalScope('notBlocked', function ($query) {
+            $query->where('status', '!=', 2);
+        });
     }
 }
