@@ -77,7 +77,7 @@ export default function AdminDashboard() {
   return (
     <>
     <Box style={{ backgroundColor: '#ccdee8', height: "100vh", overflowY: "auto", fontFamily: "Geist, sans-serif" }}>
-        <Text as="h1" size="6" weight="bold">Dashboard</Text>
+        <Heading mb="5" mt="8">Dashboard</Heading>
         {statsLoading ? (
             <Text>Loading stats...</Text>
         ) : statsError ? (
@@ -110,8 +110,12 @@ export default function AdminDashboard() {
             </Box>
             </Grid>
         )}
-
-        <Heading mb="5" mt="8">Posts</Heading>
+        <Flex align="center" justify="between" mb="5" mt="8">
+            <Heading>Posts</Heading>
+            <Button>
+                <a href="/blog/create">Create New Post</a>
+            </Button>
+        </Flex>
         {postsLoading ? (
             <Text>Loading posts...</Text>
         ) : postsError ? (

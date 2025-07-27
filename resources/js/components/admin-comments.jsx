@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Box, Table, Text, SegmentedControl } from "@radix-ui/themes";
+import { Box, Table, Text, SegmentedControl, Heading, Flex, Button } from "@radix-ui/themes";
 
 const STATUS_LABELS = {
   0: "For Review",
@@ -61,7 +61,7 @@ export default function AdminComments() {
 
   return (
     <Box style={{ backgroundColor: '#ccdee8', height: "100vh", overflowY: "auto", fontFamily: "Geist, sans-serif" }}>
-      <Text as="h1" size="6" weight="bold">Comments</Text>
+      <Heading mb="5" mt="8">Comments</Heading>
       <Table.Root variant="surface" mt="5">
       <Table.Header>
           <Table.Row>

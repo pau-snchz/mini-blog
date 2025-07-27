@@ -56,8 +56,13 @@ export default function AdminUsers() {
 
   return (
     <Box style={{ backgroundColor: '#ccdee8', height: "100vh", overflowY: "auto", fontFamily: "Geist, sans-serif" }}>
-      <Text as="h1" size="6" weight="bold">Users</Text>
-      {usersLoading ? (
+        <Flex align="center" justify="between" mb="5" mt="8">
+          <Heading>Users</Heading>
+          <Button>
+            <a href="/register">Add User</a>
+          </Button>
+        </Flex>
+        {usersLoading ? (
         <Text>Loading users...</Text>
       ) : usersError ? (
         <Text color="red">{usersError}</Text>
